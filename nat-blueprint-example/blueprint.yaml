@@ -1,3 +1,5 @@
+name: nat-blueprint-example
+version: 0.1
 formatVersion: 1
 inputs: {}
 resources:
