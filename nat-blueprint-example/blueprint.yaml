@@ -13,7 +13,7 @@ resources:
   VM1:
     type: Cloud.vSphere.Machine
     properties:
-      image: viktorious-centos76
+      image: viktorious-ubuntu1604
       cpuCount: 1
       totalMemoryMB: 2048
       networks:
@@ -24,7 +24,7 @@ resources:
   VM2:
     type: Cloud.vSphere.Machine
     properties:
-      image: viktorious-centos76
+      image: viktorious-ubuntu1604
       cpuCount: 1
       totalMemoryMB: 2048
       networks:
