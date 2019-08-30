@@ -1,5 +1,5 @@
 name: routed-blueprint-example
-version: 0.2
+version: 0.4
 formatVersion: 1
 inputs: {}
 resources:
