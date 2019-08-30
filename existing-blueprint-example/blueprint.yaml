@@ -1,5 +1,5 @@
-name: existing-blueprint-example
 version: 0.1
+name: existing-blueprint-example
 inputs: {}
 resources:
   '1921682100':
