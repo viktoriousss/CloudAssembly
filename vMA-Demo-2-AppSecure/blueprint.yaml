@@ -1,5 +1,5 @@
-name: vMA Demo 2 - AppSecure
-version: 0.1
+name: vMA-Demo2-AppSecure
+version: 0.9
 formatVersion: 1
 inputs: {}
 resources:
