@@ -1,0 +1,20 @@
+name: vMA Demo 1 - ExistingNetwork
+version: 0.1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_NSX_Network_1:
+    type: Cloud.NSX.Network
+    properties:
+      name: network
+      networkType: existing
+      constraints:
+        - tag: 'subnet:192.168.210.0/24'
+  Cloud_vSphere_Machine_1:
+    type: Cloud.vSphere.Machine
+    properties:
+      image: viktorious-ubuntu1604
+      cpuCount: 1
+      totalMemoryMB: 2048
+      networks:
+        - network: '${resource.Cloud_NSX_Network_1.id}'
