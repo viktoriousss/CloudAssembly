@@ -1,0 +1,38 @@
+name: vMA Demo 4 - WebSecure
+version: 0.1
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_NSX_Network_1:
+    type: Cloud.NSX.Network
+    properties:
+      name: network
+      networkType: routed
+      constraints:
+        - tag: 'network:routed-secure'
+  ansible-web-install:
+    type: Cloud.Ansible
+    properties:
+      inventoryFile: /etc/ansible/hosts
+      playbooks:
+        provision:
+          - /root/playbooks/web.yml
+      osType: linux
+      account: vvandenberg-ansible
+      username: root
+      privateKeyFile: /root/.ssh/id_rsa
+      maxConnectionRetries: 10
+      groups:
+        - webservers
+      host: '${resource.web.*}'
+  web:
+    type: Cloud.vSphere.Machine
+    properties:
+      image: viktorious-ubuntu1604
+      cpuCount: 1
+      totalMemoryMB: 2048
+      networks:
+        - network: '${resource.Cloud_NSX_Network_1.id}'
+      storage:
+        constraints:
+          - tag: 'storage:ssd'
