@@ -1,5 +1,5 @@
 name: ansible-www-blueprint-example
-version: 0.1
+version: 0.2
 formatVersion: 1
 inputs: {}
 resources:
