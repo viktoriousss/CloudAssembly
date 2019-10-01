@@ -1,0 +1,34 @@
+name: vMA Demo 5 - NAT
+version: 0.1
+formatVersion: 1
+inputs: {}
+resources:
+  NAT01:
+    type: Cloud.NSX.Network
+    properties:
+      name: network
+      networkType: outbound
+      constraints:
+        - tag: 'network:nat'
+  VM1:
+    type: Cloud.vSphere.Machine
+    properties:
+      image: viktorious-ubuntu1604
+      cpuCount: 1
+      totalMemoryMB: 2048
+      networks:
+        - network: '${resource.NAT01.id}'
+      storage:
+        constraints:
+          - tag: 'storage:ssd'
+  VM2:
+    type: Cloud.vSphere.Machine
+    properties:
+      image: viktorious-ubuntu1604
+      cpuCount: 1
+      totalMemoryMB: 2048
+      networks:
+        - network: '${resource.NAT01.id}'
+      storage:
+        constraints:
+          - tag: 'storage:ssd'
