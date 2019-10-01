@@ -1,5 +1,5 @@
-name: vMA Demo 5 - NAT
-version: 0.1
+name: vMA-Demo5-NAT
+version: 0.9
 formatVersion: 1
 inputs: {}
 resources:
