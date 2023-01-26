@@ -1,0 +1,46 @@
+name: nat-blueprint-example
+version: 0.2
+formatVersion: 1
+inputs: {}
+resources:
+  NAT01:
+    type: Cloud.NSX.Network
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      name: network
+      networkType: outbound
+      constraints:
+        - tag: 'network:nat'
+  VM1:
+    type: Cloud.vSphere.Machine
+    metadata:
+      layoutPosition:
+        - 1
+        - 1
+    properties:
+      image: viktorious-ubuntu1604
+      cpuCount: 1
+      totalMemoryMB: 2048
+      networks:
+        - network: '${resource.NAT01.id}'
+      storage:
+        constraints:
+          - tag: 'storage:ssd'
+  VM2:
+    type: Cloud.vSphere.Machine
+    metadata:
+      layoutPosition:
+        - 1
+        - 2
+    properties:
+      image: viktorious-ubuntu1604
+      cpuCount: 1
+      totalMemoryMB: 2048
+      networks:
+        - network: '${resource.NAT01.id}'
+      storage:
+        constraints:
+          - tag: 'storage:ssd'
